@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option java_package = "com.example.grpc";
+
+service NumberService {
+ rpc GetNumber(NumberRequest) returns (NumberResponse) {};
+ rpc SetOfNumbers(SetOfNumbersRequest) returns (stream SetOfNumbersResponse) {};
+ rpc GetSDNumber(stream SDNumberRequest) returns (SDNumberResponse) {};
+ rpc GetMaxNumber(stream MaxNumberRequest) returns (stream MaxNumberResponse) {};
+}
+
+message NumberRequest {
+ int32 num = 1;
+}
+
+message NumberResponse {
+ double result = 1;
+}
+
+message SetOfNumbersRequest {
+ int32 num = 1;
+}
+
+message SetOfNumbersResponse {
+ int32 result = 1;
+}
+
+message SDNumberRequest {
+ double num = 1;
+}
+
+message SDNumberResponse {
+ double result = 1;
+}
+
+message MaxNumberRequest {
+ int32 num = 1;
+}
+
+message MaxNumberResponse {
+ int32 result = 1;
+}
